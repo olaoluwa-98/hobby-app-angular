@@ -1,7 +1,15 @@
 {
   "name": "hobby-app-ng",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
+  "description": "An application for users to add and remove their hobbies",
+  "keywords": ["hobby", "likes"],
+  "authors": [
+    {
+      "name": "Emmanuel Awotunde",
+      "email": "awotunde.emmanuel1@gmail.com"
+    }
+   ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
