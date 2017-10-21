@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Hobby } from './../hobby';
+import { NodeApiService } from './../node-api.service';
+import { HobbyService } from './../hobby.service';
 
 @Component({
   selector: 'app-hobbies',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HobbiesComponent implements OnInit {
 
-  constructor() { }
+  public hobbies: Hobby[];
+
+  constructor(
+    private hobbyService: HobbyService
+  ) { }
 
   ngOnInit() {
+    this.hobbyService.getAllHobbies()
+    .subscribe(hobbies => {
+      this.hobbies = hobbies;
+    });
   }
-
 }

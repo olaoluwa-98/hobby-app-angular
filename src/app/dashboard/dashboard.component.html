@@ -7,14 +7,14 @@
       <div class="card-body">
         <h4 class="card-title">Your Hobby Dashboard</h4>
         <p class="card-text">Here you can view your recently viewed hobbies</p>
-        <a href="#" class="btn btn-primary">Add New Hobby?</a>
+        <a routerLink="/new-hobby" routerLinkActive="active" class="btn btn-primary">Add New Hobby?</a>
       </div>
       <div class="card-footer text-muted">
-        Last Added: Date
+          <!-- Last Change: {{ hobbies[hobbies.length - 1].created_at }} -->
       </div>
   </div>
 
-  <app-hobby [hobbies] = "hobbies" ></app-hobby>
+  <app-hobby [hobbies] = "hobbies" (ed_hobby) = "handleEdit($event)" (del_hobby) = "handleRemove($event)"></app-hobby>
 </div>
 <!-- footer -->
 <app-footer></app-footer>

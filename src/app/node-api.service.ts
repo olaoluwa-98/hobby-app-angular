@@ -19,6 +19,10 @@ export class NodeApiService {
     return this.http.post(`${this.apiBaseUrl}${url}`, data);
   }
 
+  put (url, data) : Observable<any> {
+    return this.http.put(`${this.apiBaseUrl}${url}`, data);
+  }
+
   delete (url, id) : Observable<any> {
     return this.http.delete(`${this.apiBaseUrl}${url}/${id}`);
   }

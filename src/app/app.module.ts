@@ -16,6 +16,12 @@ import { LandingComponent } from './landing/landing.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderGuestComponent } from './header-guest/header-guest.component';
+import { RegisterComponent } from './register/register.component';
+import { HobbyEditFormComponent } from './hobby-edit-form/hobby-edit-form.component';
+import { NewHobbyComponent } from './new-hobby/new-hobby.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { HobbyDetailComponent } from './hobby-detail/hobby-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,11 @@ import { HeaderGuestComponent } from './header-guest/header-guest.component';
     LandingComponent,
     FooterComponent,
     LoginComponent,
-    HeaderGuestComponent
+    HeaderGuestComponent,
+    RegisterComponent,
+    HobbyEditFormComponent,
+    NewHobbyComponent,
+    HobbyDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +48,9 @@ import { HeaderGuestComponent } from './header-guest/header-guest.component';
   ],
   providers: [
      NodeApiService,
-     HobbyService
+     HobbyService,
+     AuthGuard,
+     AuthService
     ],
   bootstrap: [AppComponent]
 })

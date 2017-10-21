@@ -1,14 +1,22 @@
 <!-- header -->
 <app-header-guest></app-header-guest>
-<!-- <div class="jumbotron">
-  <h1 class="display-3">Welcome to my Hobby App</h1>
-  <p class="lead">A very light weight platform for storing your hobbies</p>
-  <hr class="my-4">
-  <p>In this App, you can add and remove hobbies.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" routerLink="/login" routerLinkActive="active" role="button">Go Home</a>
-  </p>
-</div> -->
+<div class="jumbotron">
+  <h1 class="display-3">Login to my Hobby App</h1>
+
+<form style="margin-top:20px" action="" (ngSubmit)="login()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" [(ngModel)]="user_login.username" aria-describedby="username" placeholder="Enter your username">
+    <!-- <small id="username" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" [(ngModel)]="user_login.password" placeholder="Password">
+  </div>
+  <a routerLink="/register" routerLinkActive="active" class="form-text text-muted">Not Registered?</a>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+</div>
 
 <!-- footer -->
 <app-footer></app-footer>

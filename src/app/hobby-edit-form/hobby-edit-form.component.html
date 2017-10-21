@@ -1,0 +1,9 @@
+<form action="" (ngSubmit)="submitUpdate()">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Title of hobby e.g dancing" [(ngModel)]="hobby.title" name="title">
+    </div>
+    <div class="form-group">
+      <textarea id="" cols="30" rows="10" class="form-control" placeholder="Write more on this hobby" [(ngModel)]="model.body" name="body"></textarea>
+    </div>
+    <button class="btn btn-comment btn-block">Update</button>
+</form>
