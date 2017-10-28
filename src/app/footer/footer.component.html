@@ -1,5 +1,28 @@
 <!-- footer -->
-<!-- <nav class="navbar fixed-bottom" id="my-footer"> -->
-<nav class="navbar" id="my-footer">
-  <a class="navbar-brand" href="#">Fixed bottom</a>
+<nav class="navbar navbar-expand-lg" id="my-footer">
+  <a class="navbar-brand" routerLink="/" routerLinkActive="active">HobbyApp</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="Logged">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" >Dashboard</a>
+      </li>
+      <li class="nav-item" *ngIf="Logged">
+          <a class="nav-link" routerLink="/hobbies" routerLinkActive="active" >All Hobbies</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active" >About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active" >Contact</a>
+      </li>        
+      <li class="nav-item" *ngIf="notLogged">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active" >Register</a>
+      </li>
+      <li class="nav-item" *ngIf="notLogged">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" >Login</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+        Made with by <i class="fa fa-heart" style="color: red"></i> <a target="_blank" style="text-decoration: none; color: white" 
+        href="twitter.com/olaoluwa_98"> Emmanuel Awotunde</a>
+    </span>
 </nav>

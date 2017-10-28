@@ -24,7 +24,7 @@ export class HobbyDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-    .switchMap((params: Params) => this.hobbyService.getHobby(+params['id']))
+    .switchMap((params: Params) => this.hobbyService.getHobby(params['id']))
     .subscribe(hobby => this.hobby = hobby);
     console.log(this.hobby);
   }

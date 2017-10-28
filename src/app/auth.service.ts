@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class AuthService {
-  isLoggedin = true;
-
-  public login_url = 'http://localhost:3000/api/login';
-
 
   constructor(
     private _http:Http
   ) { }
 
-
-  loginfn(user_creds)
+  login(data) : Observable<any>
   {
-    this.isLoggedin = false;
-    var headers = new Headers();
-    var creds = 'username=' + user_creds.username + '&password=' + user_creds.password;
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.post('http://localhost:3000/login', data);
+  }
 
+  logout(data) : Observable<any>
+  {
+    return this._http.get('http://localhost:3000/logout/' + data);
+  }
 
-    return new Promise((resolve) => {
-      this._http.post(this.login_url, creds, {headers: headers})
-      .subscribe(data => {
-        if(data.json().success)
-        {
-          window.localStorage.setItem('auth_key', data.json().token);
-          this.isLoggedin = true;
-          resolve(this.isLoggedin)
-        }
-      });
-    })    
+  register(data)
+  {
+    return this._http.post('http://localhost:3000/register', data);
+  }
+
+  // checkauth()
+  // {
+  //   return this._http.post('authenticate', window.localStorage.getItem('auth_key'));
+  // }
+
+  get_user()
+  {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'x-access-token' : window.localStorage.getItem('auth_key') });
+    return this._http.get('http://localhost:3000/api/user', {headers: headers});
   }
 }

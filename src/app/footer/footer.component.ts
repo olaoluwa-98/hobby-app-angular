@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  public notLogged = true;
+  public Logged = false;
   constructor() { }
 
   ngOnInit() {
+    if (window.localStorage.getItem('auth_key'))
+    {
+      this.notLogged = false;
+      this.Logged = true;
+    }
+      
   }
 
 }

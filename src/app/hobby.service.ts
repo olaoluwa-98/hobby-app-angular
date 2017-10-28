@@ -4,10 +4,12 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HobbyService {
-
+  
    constructor(
     private node_api: NodeApiService
-  ) { }
+  ) {
+    node_api.setToken(window.localStorage.getItem('auth_key'));
+  }
 
   getAllHobbies() {
     return this.node_api.get('hobbies')
@@ -24,8 +26,18 @@ export class HobbyService {
       .map(response => response.json());
   }
 
-  editHobby(id) {
-    return this.node_api.put('edit-hobby', id)
+  editHobby(data) {
+    return this.node_api.put('edit-hobby', data)
+      .map(response => response.json());
+  }
+
+  favHobby(data) {
+    return this.node_api.put('fav-hobby', data)
+      .map(response => response.json());
+  }
+
+  unfavHobby(data) {
+    return this.node_api.put('unfav-hobby', data)
       .map(response => response.json());
   }
 

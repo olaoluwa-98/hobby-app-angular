@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "An application for users to add and remove their hobbies",
-  "keywords": ["hobby", "likes"],
+  "keywords": [
+    "hobby",
+    "likes"
+  ],
   "authors": [
     {
       "name": "Emmanuel Awotunde",
       "email": "awotunde.emmanuel1@gmail.com"
     }
-   ],
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,6 +23,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^4.4.6",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -8,35 +9,33 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit {  
 
+  public error;
   public user_login = {
     username: '',
     password: ''
   }
   constructor(
-    private auth_service:AuthService, private router:Router
-  ) { }
+    private auth_service: AuthService, private router: Router
+  ) {}
 
   ngOnInit() {
+    if (window.localStorage.getItem('auth_key'))
+      this.router.navigate(['dashboard']);
   }
 
   login()
   {
-    this.auth_service.loginfn(this.user_login).then( (res) =>{
-      if(res)
-        this.router.navigate(['dashboard']);
-      else
-        console.log(res);
-    })
+    this.auth_service.login(this.user_login)
+      .map(response => response.json())
+      .subscribe( data => {
+          window.localStorage.setItem('auth_key', data.token);
+          this.router.navigate(['dashboard']);
+      },
+      error => {
+        this.error = JSON.parse(error._body).message;
+      }
+      );
   }
-
-  clearfields()
-  {
-    this.user_login = {
-      username: '',
-      password: ''
-    }
-  }
-
 }

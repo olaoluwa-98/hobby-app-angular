@@ -12,20 +12,24 @@ import { NewHobbyComponent } from './new-hobby/new-hobby.component';
 import { AuthGuard } from './auth.guard';
 import { HobbyDetailComponent } from './hobby-detail/hobby-detail.component';
 import { HobbyEditFormComponent } from './hobby-edit-form/hobby-edit-form.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
-  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+
+  { path: 'about',  component: AboutComponent },
+  { path: 'contact',  component: ContactComponent },
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
     component: DashboardComponent,
   },
   {
-    path: 'new-hobby',
+    path: 'edit-hobby/:id',
     canActivate: [AuthGuard],
-    component: NewHobbyComponent
-  },
+    component: HobbyEditFormComponent
+  },  
   {
     path: 'hobbies',
     canActivate: [AuthGuard],
@@ -36,14 +40,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: HobbyDetailComponent
   },
-  {
-    path: 'edit-hobby/:id',
-    canActivate: [AuthGuard],
-    component: HobbyEditFormComponent
-  },
-
-  // user not logged in
   { path: 'login',  component: LoginComponent },
+  {
+    path: 'new-hobby',
+    canActivate: [AuthGuard],
+    component: NewHobbyComponent
+  },
   { path: 'register',  component: RegisterComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
