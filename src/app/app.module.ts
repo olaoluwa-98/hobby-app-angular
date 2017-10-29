@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,11 +18,10 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { RegisterComponent } from './register/register.component';
-import { HobbyEditFormComponent } from './hobby-edit-form/hobby-edit-form.component';
+import { HobbyEditComponent } from './hobby-edit/hobby-edit.component';
 import { NewHobbyComponent } from './new-hobby/new-hobby.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
-import { HobbyDetailComponent } from './hobby-detail/hobby-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 
@@ -39,9 +38,8 @@ import { AboutComponent } from './about/about.component';
     LoginComponent,
     HeaderGuestComponent,
     RegisterComponent,
-    HobbyEditFormComponent,
+    HobbyEditComponent,
     NewHobbyComponent,
-    HobbyDetailComponent,
     ContactComponent,
     AboutComponent
   ],
@@ -50,7 +48,7 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule
   ],
   providers: [
      NodeApiService,

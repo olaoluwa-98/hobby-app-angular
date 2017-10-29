@@ -46,7 +46,10 @@ export class DashboardComponent implements OnInit {
       this.user = data.user;
     },
     error => {
-      this.errors = JSON.parse(error._body).message;
+      if(error.status == 0)
+        this.errors = 'Server is offline bro';
+      else
+        this.errors = JSON.parse(error._body).message;
     }
     );
 
@@ -60,7 +63,14 @@ export class DashboardComponent implements OnInit {
       }
       this.hobbies = data.hobbies.slice(0, 3);
       if (this.hobbies.length >= 1) this.last_change = this.hobbies[this.hobbies.length - 1].updated_at;
-    });
+    },
+      error => {
+        if(error.status == 0)
+          this.errors = 'Server is offline bro';
+        else
+          this.errors = JSON.parse(error._body).message;
+      }
+  );
   }
   
   handleEdit(hobbyId) 
@@ -88,7 +98,10 @@ export class DashboardComponent implements OnInit {
       if (this.hobbies.length == 0) this.hobbies = [];
     },
     error => {
-      this.errors = JSON.parse(error._body).message;
+      if(error.status == 0)
+        this.errors = 'Server is offline bro';
+      else
+        this.errors = JSON.parse(error._body).message;
     }
   );  
   }
@@ -102,7 +115,10 @@ export class DashboardComponent implements OnInit {
       delete this.fav_hobby;
     },
     error => {
-      this.errors = JSON.parse(error._body).message;
+      if(error.status == 0)
+        this.errors = 'Server is offline bro';
+      else
+        this.errors = JSON.parse(error._body).message;
     }
   );  
   }
@@ -116,7 +132,10 @@ export class DashboardComponent implements OnInit {
         else if (hobbyId == this.fav_hobby._id) delete this.fav_hobby;
       },
       error => {
-        this.errors = JSON.parse(error._body).message;
+        if(error.status == 0)
+          this.errors = 'Server is offline bro';
+        else
+          this.errors = JSON.parse(error._body).message;
       }
     );
   }

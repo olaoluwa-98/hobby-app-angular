@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     password: ''
   }
   public errors;
+  public errors_2;
 
   constructor(
     private auth_service: AuthService, private router: Router
@@ -40,8 +41,20 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['dashboard']);
       },
       error => {
-        this.errors = JSON.parse(error._body).message;
-        // this.user_login.password = '';
+        if(error.status === 0)
+        {
+          this.errors = ['Server is offline bro'];
+        }
+        else if (JSON.parse(error._body).type === 2)
+        {
+          this.errors_2 = JSON.parse(error._body).errors;
+          this.errors = null;
+        }
+        else
+        {
+          this.errors = JSON.parse(error._body).errors;
+          this.errors_2 = null;
+        }
       }
     );
   }

@@ -7,6 +7,9 @@
   <div class="col-md-2">
     <div class="card" style="margin-top:15px">
         <div class="card-body">
+            <div *ngIf="error" class="alert alert-danger">
+                {{error}}
+            </div>
           <h4 class="card-title">
             {{ user.first_name }} {{ user.last_name }}
           </h4>
@@ -38,11 +41,18 @@
               Description of the hobby is required
             </div>
           </div>
-          <div class="alert alert-success" [@success] = "success.state" (click)="animateMe()">
+          <div *ngIf="errors_2" class="alert alert-success">
+            {{ errors_2.message }} <br>{{ errors_2.errors.message }}
+          </div>
+
+          <div *ngIf="success.message" class="alert alert-success">
             {{success.message}}
           </div>
-          <div *ngIf="errors" class="alert alert-danger">
-            {{ errors }}
+
+          <div *ngIf="errors">
+            <div *ngFor="let error of errors " class="alert alert-danger">
+              {{ error.msg }}
+            </div>
           </div>
           <button class="btn btn-info btn-block" [disabled]="!hobbyForm.form.valid" >Add Hobby</button>
       </form>

@@ -10,8 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NewHobbyComponent } from './new-hobby/new-hobby.component';
 import { AuthGuard } from './auth.guard';
-import { HobbyDetailComponent } from './hobby-detail/hobby-detail.component';
-import { HobbyEditFormComponent } from './hobby-edit-form/hobby-edit-form.component';
+import { HobbyEditComponent } from './hobby-edit/hobby-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -28,17 +27,12 @@ const routes: Routes = [
   {
     path: 'edit-hobby/:id',
     canActivate: [AuthGuard],
-    component: HobbyEditFormComponent
+    component: HobbyEditComponent
   },  
   {
     path: 'hobbies',
     canActivate: [AuthGuard],
     component: HobbiesComponent
-  },
-  {
-    path: 'hobby/:id',
-    canActivate: [AuthGuard],
-    component: HobbyDetailComponent
   },
   { path: 'login',  component: LoginComponent },
   {

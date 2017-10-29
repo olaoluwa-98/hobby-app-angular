@@ -34,7 +34,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['dashboard']);
       },
       error => {
-        this.error = JSON.parse(error._body).message;
+        if(error.status == 0)
+          this.error = 'Server is offline bro';
+        else
+          this.error = JSON.parse(error._body).message;
       }
       );
   }

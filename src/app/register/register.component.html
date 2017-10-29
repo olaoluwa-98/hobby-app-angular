@@ -53,9 +53,17 @@
               </div>
           </div>
         </div>
-        <div *ngIf="errors" class="alert alert-danger col-md-6">
-          {{ errors }}
-        </div>
+        <div *ngIf="errors">
+            <div *ngFor="let error of errors " class="alert alert-danger col-md-6">
+              {{ error }}
+            </div>
+          </div>
+
+          <div *ngIf="errors_2">
+              <div *ngFor="let error of errors_2" class="alert alert-danger col-md-6">
+                {{ error.msg }}
+              </div>
+          </div>
         <a routerLink="/login" routerLinkActive="active" class="form-text text-muted">Not Registered?</a>
       <button type="submit" [disabled]="!regForm.form.valid" class="btn btn-primary">Register</button>
     </form>

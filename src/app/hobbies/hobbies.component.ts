@@ -31,7 +31,10 @@ export class HobbiesComponent implements OnInit {
       this.user = data.user;
     },
     error => {
-      this.errors = JSON.parse(error._body).message;
+      if(error.status == 0)
+        this.errors = 'Server is offline bro';
+      else
+        this.errors = JSON.parse(error._body).message;
     }    
     );
 
