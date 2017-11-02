@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { HobbyEditComponent } from './hobby-edit/hobby-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
     component: NewHobbyComponent
   },
   { path: 'register',  component: RegisterComponent },
+  { path: 'reset-password',  component: ResetPasswordComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -24,6 +24,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AboutComponent } from './about/about.component';
     HobbyEditComponent,
     NewHobbyComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

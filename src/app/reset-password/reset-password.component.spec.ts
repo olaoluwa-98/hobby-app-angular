@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HobbyEditComponent } from './hobby-edit.component';
+import { ResetPasswordComponent } from './reset-password.component';
 
-describe('HobbyEditComponent', () => {
-  let component: HobbyEditComponent;
-  let fixture: ComponentFixture<HobbyEditComponent>;
+describe('ResetPasswordComponent', () => {
+  let component: ResetPasswordComponent;
+  let fixture: ComponentFixture<ResetPasswordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HobbyEditComponent ]
+      declarations: [ ResetPasswordComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HobbyEditComponent);
+    fixture = TestBed.createComponent(ResetPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

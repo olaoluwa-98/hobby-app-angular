@@ -22,7 +22,8 @@
   <div *ngIf="error" class="alert alert-danger">
     {{ error }}
   </div>
-  <a routerLink="/register" routerLinkActive="active" class="form-text text-muted">Not Registered?</a>
+  <a routerLink="/register" routerLinkActive="active" class="form-text text-muted">Not Registered?</a><br>
+  <a routerLink="/reset-password" routerLinkActive="active" class="form-text text-muted">Forgot password?</a>
   <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">Login</button>
 </form>
 </div>

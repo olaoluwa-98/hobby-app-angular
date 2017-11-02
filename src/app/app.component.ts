@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -8,8 +6,6 @@ import { Observable } from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  public title = 'Hobby App';
   
   constructor() {}
 
