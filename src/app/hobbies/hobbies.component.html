@@ -5,39 +5,54 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-          <div class="card" style="margin-top:15px">
-            <div class="card-body">
-                <div *ngIf="errors" class="alert alert-danger">
-                    {{errors}}
+            <div class="card" style="margin-top:15px">
+                <div class="card-body">
+                    <div *ngIf="errors" class="alert alert-danger">
+                        {{errors}}
+                    </div>
+                    <h4 class="card-title">
+                        {{ user.first_name }} {{ user.last_name }}
+                    </h4>
+                    <h6 class="card-subtitle mb-2 text-muted">@{{ user.username }} </h6>
+                    <p class="card-text" style="color:dimgrey">({{ user.email }})</p>
+                    <!-- <a routerLink="/profile" routerLinkActive="active" class="card-link">View Detail</a> -->
                 </div>
-              <h4 class="card-title">
-                {{ user.first_name }} {{ user.last_name }}
-              </h4>
-              <h6 class="card-subtitle mb-2 text-muted">@{{ user.username }} </h6>
-              <p class="card-text" style="color:dimgrey">({{ user.email }})</p>
-              <!-- <a routerLink="/profile" routerLinkActive="active" class="card-link">View Detail</a> -->
             </div>
-          </div>
         </div>
-        <div class="col-md-10">
-          <div class="card text-center" style="margin-top: 15px;margin-bottom: 15px">
-              <div class="card-body">
-                <h4 class="card-title">Your Hobbies</h4>
-                <p class="card-text">Here you can view all your hobbies</p>
-                <a routerLink="/new-hobby" routerLinkActive="active" class="btn btn-primary">Add New Hobby?</a>
-              </div>
-              <div class="card-footer text-muted">
-                  Last Change: {{last_change | date:'medium' }}
-              </div>
-          </div>
-    
-      <div *ngIf="errors" class="alert alert-danger text-center col-md-12">
-        {{ errors }}
-      </div>
-    
-      <app-hobby [hobbies] = "hobbies" (ed_hobby) = "handleEdit($event)" (del_hobby) = "handleRemove($event)"></app-hobby>
+
+        <div class="col-md-8">
+            <div class="card text-center" style="margin-top: 15px;margin-bottom: 15px">
+                <div class="card-body">
+                    <h4 class="card-title">Your Hobbies</h4>
+                    <p class="card-text">Here you can view all your hobbies<br>
+                        <small>Double click the any card to make the hobby your favorite</small>
+                    </p>
+                    <a routerLink="/new-hobby" routerLinkActive="active" class="btn btn-primary">Add New Hobby?</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Last Change: {{last_change | date:'medium' }}
+                </div>
+            </div>
+            <div *ngIf="errors" class="alert alert-danger text-center col-md-12">
+                {{ errors }}
+            </div>
+            <app-hobby [hobbies]="hobbies" (fav_hobby)="favorite($event)" (ed_hobby)="handleEdit($event)" (del_hobby)="handleRemove($event)"></app-hobby>
+        </div>
+
+        <div class="col-md-2">
+            <div *ngIf="fav_hobby" (dblclick)="unfavorite( fav_hobby._id )" class="card border-danger mb-3" style="margin-top:15px" title="Double Click to unfavorite">
+                <div class="card-header text-muted">Favorite Hobby</div>
+                <div class="card-body text-danger">
+                    <h4 class="card-title">{{ fav_hobby.title }}</h4>
+                    <p class="card-text">{{ fav_hobby.body }}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    <small> {{ fav_hobby.updated_at | date:'medium'}}</small>
+                    <button class="btn btn-danger btn-sm" style="float:right" (click)="handleRemove( fav_hobby._id )">Remove</button>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-  </div>  
+</div>
 <!-- footer -->
 <app-footer></app-footer>

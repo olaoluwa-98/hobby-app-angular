@@ -10,20 +10,6 @@ import { Router } from '@angular/router';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  // animations: [
-  //   trigger('heroState', [
-  //     state('inactive', style({
-  //       backgroundColor: '#eee',
-  //       transform: 'scale(1)'
-  //     })),
-  //     state('active',   style({
-  //       backgroundColor: '#cfd8dc',
-  //       transform: 'scale(1.1)'
-  //     })),
-  //     transition('inactive => active', animate('100ms ease-in')),
-  //     transition('active => inactive', animate('100ms ease-out'))
-  //   ])
-  // ]
 })
 export class DashboardComponent implements OnInit {
 
@@ -39,7 +25,6 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.authService.get_user()
     .map(response => response.json())
     .subscribe(data => {

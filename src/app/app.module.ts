@@ -18,13 +18,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderGuestComponent } from './header-guest/header-guest.component';
 import { RegisterComponent } from './register/register.component';
-import { HobbyEditComponent } from './hobby-edit/hobby-edit.component';
 import { NewHobbyComponent } from './new-hobby/new-hobby.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -39,11 +38,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     LoginComponent,
     HeaderGuestComponent,
     RegisterComponent,
-    HobbyEditComponent,
     NewHobbyComponent,
     ContactComponent,
     AboutComponent,
-    ResetPasswordComponent
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

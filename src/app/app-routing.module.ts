@@ -10,10 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NewHobbyComponent } from './new-hobby/new-hobby.component';
 import { AuthGuard } from './auth.guard';
-import { HobbyEditComponent } from './hobby-edit/hobby-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -26,11 +25,6 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'edit-hobby/:id',
-    canActivate: [AuthGuard],
-    component: HobbyEditComponent
-  },  
-  {
     path: 'hobbies',
     canActivate: [AuthGuard],
     component: HobbiesComponent
@@ -41,8 +35,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: NewHobbyComponent
   },
+  { path: 'password',
+    canActivate: [AuthGuard],
+    component: ChangePasswordComponent 
+  },
   { path: 'register',  component: RegisterComponent },
-  { path: 'reset-password',  component: ResetPasswordComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -34,4 +34,10 @@ export class AuthService {
     let headers = new Headers({ 'Content-Type': 'application/json', 'x-access-token' : window.localStorage.getItem('auth_key') });
     return this._http.get('http://localhost:3000/api/user', {headers: headers});
   }
+
+  changepwd(data)
+  {
+    let headers = new Headers({ 'Content-Type': 'application/json', 'x-access-token' : window.localStorage.getItem('auth_key') });
+    return this._http.post('http://localhost:3000/api/change-password', data, {headers: headers});
+  }
 }
