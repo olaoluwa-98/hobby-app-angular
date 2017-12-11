@@ -22,7 +22,7 @@
     },
     "engines": {
         "node": "8.1.2",
-        "npm": "3.10.9"
+        "npm": "5.0.3"
     },
     "private": true,
     "dependencies": {
