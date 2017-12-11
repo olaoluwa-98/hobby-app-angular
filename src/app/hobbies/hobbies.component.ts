@@ -36,17 +36,27 @@ export class HobbiesComponent implements OnInit {
         this.errors = 'Server is offline bro';
       else
         this.errors = JSON.parse(error._body).message;
-    }    
+    }
     );
 
     this.hobbyService.getAllHobbies()
     .subscribe(data => {
-      this.hobbies = data.hobbies;
-      if (data.hobbies.length >= 1)
+      const index = data.hobbies.findIndex(hobby => hobby.favorite === true);
+      if(index != -1)
       {
-        this.last_change = this.hobbies[this.hobbies.length - 1].updated_at;
-      }      
-    });    
+        this.fav_hobby = data.hobbies[index];
+        data.hobbies.splice(index, 1);
+      }
+      this.hobbies = data.hobbies.slice(0, 3);
+      if (this.hobbies.length >= 1) this.last_change = this.hobbies[this.hobbies.length - 1].updated_at;
+    },
+      error => {
+        if(error.status == 0)
+          this.errors = 'Server is offline bro';
+        else
+          this.errors = JSON.parse(error._body).message;
+      }
+  ); 
   }
 
   handleEdit(hobbyId) 
