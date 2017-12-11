@@ -20,6 +20,10 @@
         "e2e": "ng e2e",
         "postinstall": "ng build"
     },
+    "engines": {
+        "node": "8.1.2",
+        "npm": "5.0.3"
+    },
     "private": true,
     "dependencies": {
         "@angular/animations": "^4.4.6",
