@@ -19,7 +19,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
+  },
+  "engines": {
+    "node": "8.1.2",
+    "npm": "5.0.3"
   },
   "private": true,
   "dependencies": {
